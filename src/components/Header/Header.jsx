@@ -5,7 +5,7 @@ import "./Header.css";
 
 function Header() {
   const navigate = useNavigate();
-  const { token, user } = useAuth(); // Placeholder, replace with useAuth()
+  const { token, user, logout } = useAuth();
 
   const handleLogin = () => {
     // Your Code Here
@@ -19,12 +19,8 @@ function Header() {
 
   const handleLogout = () => {
     // Your Code Here
-    // Clear token and user info from localStorage
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    // Optionally, you can also update the AuthContext state if needed
-    // For example, if you have a logout function in your AuthContext, call it here
-    // logout();
+    // Clear token and user info from state and localStorage
+    logout();
     navigate('/login')  
   };
 
