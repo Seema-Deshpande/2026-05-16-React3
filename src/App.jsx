@@ -8,17 +8,25 @@ import ThreadPage from "./pages/User/ThreadPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
+import CreateThreadForm from "./components/Forms/CreateThreadForm";
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <div className="app-layout">
         <Header />
         <div className="app-container">
           <main className="main-center-content">
             <Routes>
-              // Your code here: define routes for Login, Register, Home and
-              ThreadPage
+              <Route 
+                path="/register"
+                element= {<Register/>}
+              />
+              <Route
+                path="/login"
+                element={<Login />}
+              />
               <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
           </main>
@@ -26,6 +34,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
