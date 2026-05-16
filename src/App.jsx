@@ -9,6 +9,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 import CreateThreadForm from "./components/Forms/CreateThreadForm";
+import Profile from "./pages/User/Profile";
 
 function App() {
   return (
@@ -34,6 +35,13 @@ function App() {
                     <Home />
                   </PrivateRoute>
                 }
+                />
+                <Route 
+                  path="/profile"
+                  element={
+                  <PrivateRoute>
+                  <Profile/>
+                  </PrivateRoute>}
                 />
               <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
